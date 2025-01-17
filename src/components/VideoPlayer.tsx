@@ -54,10 +54,10 @@ const handleKeyPresses = useCallback((event: KeyboardEvent) => {
     const segments = videoData?.signedUrl.split("/");
     if (segments) {
       segments[2] = "d3qxp337p595mk.cloudfront.net";
-      console.log(segments);
+      // console.log(segments);
     }
-    console.log(videoData);
-    console.log(segments?.join("/"));
+    // console.log(videoData);
+    // console.log(segments?.join("/"));
     return segments?.join("/");
   };
 

@@ -82,7 +82,7 @@ function App() {
               <UpdateCourseForm />
             </AuthWrapper>
           } />
-          <Route path="/buy-course" element={
+          <Route path="/buy-course/:courseId" element={
             <AuthWrapper requireAuth={true} showNavbar={true}>
               <PaymentGateway />
             </AuthWrapper>

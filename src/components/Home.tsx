@@ -33,56 +33,56 @@ const Card: React.FC<CardProps> = ({
     navigate(`/courses/${courseId}`, { replace: false });
   };
 
-  const handleBuyCourse = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleBuyCourse = (e: React.MouseEvent<HTMLButtonElement>, courseId: number) => {
     e.preventDefault();
-    navigate("/buy-course");
+    navigate(`/buy-course/${courseId}`);
   };
 
   return (
     <div className="w-full md:w-1/3 p-10">
-      <div className="bg-blue-950 shadow-md rounded-lg overflow-hidden hover:bg-indigo-900 cursor-pointer min-h-[300px]">
-        <img
-          className="w-full h-48 object-cover"
-          src={thumbnailUrl}
-          alt={`${name} thumbnail`}
-        />
-        <div className="p-4">
-          <h2 className="text-xl font-semibold mb-2">{name}</h2>
-          {!purchasedCourseIds.includes(courseId) && (
-            <p>
-              Price : <span className="line-through mr-2">₹{price}</span>
-              <span>₹{priceAfterDiscount}</span>
-              <span className="text-blue-500 font-semibold ml-2">
-                {discount}% off
-              </span>
-            </p>
-          )}
-          {purchasedCourseIds.includes(courseId) && (
-            <p>
-              Status: {status == "NOTSTARTED" ? "Not started" : "In progress"}
-            </p>
-          )}
-          <p className=" mb-2">Progress: {progress}%</p>
-          {purchasedCourseIds.includes(courseId) ? (
-            <button
-              className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-1"
-              onClick={(e) => {
-                handleViewCourse(e);
-              }}
-            >
-              View course
-            </button>
-          ) : (
-            <button
-              className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-1"
-              onClick={(e) => {
-                handleBuyCourse(e);
-              }}
-            >
-              Buy course
-            </button>
-          )}
-        </div>
+      <div className="bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:bg-gray-700 cursor-pointer min-h-[300px] transition duration-300 ease-in-out transform hover:scale-105">
+      <img
+        className="w-full h-48 object-cover"
+        src={thumbnailUrl}
+        alt={`${name} thumbnail`}
+      />
+      <div className="p-4 text-white">
+        <h2 className="text-xl font-semibold mb-2">{name}</h2>
+        {!purchasedCourseIds.includes(courseId) && (
+        <p>
+          Price : <span className="line-through mr-2">₹{price}</span>
+          <span>₹{priceAfterDiscount}</span>
+          <span className="text-green-400 font-semibold ml-2">
+          {discount}% off
+          </span>
+        </p>
+        )}
+        {purchasedCourseIds.includes(courseId) && (
+        <p>
+          Status: {status == "NOTSTARTED" ? "Not started" : "In progress"}
+        </p>
+        )}
+        <p className="mb-2">Progress: {progress}%</p>
+        {purchasedCourseIds.includes(courseId) ? (
+        <button
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-1"
+          onClick={(e) => {
+          handleViewCourse(e);
+          }}
+        >
+          View course
+        </button>
+        ) : (
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-1"
+          onClick={(e) => {
+          handleBuyCourse(e, courseId);
+          }}
+        >
+          Buy course
+        </button>
+        )}
+      </div>
       </div>
     </div>
   );
@@ -94,7 +94,7 @@ function Home() {
   const [purchasedCourses, setPurchasedCourses] = React.useState<CardProps[]>(
     []
   );
-  console.log(JSON.parse(localStorage.getItem("user") || "{}").userId);
+  // console.log(JSON.parse(localStorage.getItem("user") || "{}").userId);
 
   useEffect(() => {
     async function fetchCourses() {

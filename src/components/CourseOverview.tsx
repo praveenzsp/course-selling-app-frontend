@@ -76,14 +76,14 @@ const VideoCard: React.FC<VideoCardProps> = ({ id, name, courseId }) => {
 
   const handleWatchVideo = (e: React.MouseEvent<HTMLButtonElement>, videoId: number) => {
     e.preventDefault();
-    console.log("video with id", videoId);
+    // console.log("video with id", videoId);
     navigate(`/courses/${courseId}/${videoId}`);
   };
 
   return (
-    <div className="w-full md:w-1/3 h-[200px] bg-blue-950 rounded-md p-2 my-5 mx-0 md:mx-5 flex flex-col items-center justify-evenly border-[1px] border-gray-600 hover:border-[2px]">
-      <span></span><h2 className="text-xl">{name}</h2>
-      <button className="bg-green-600 rounded-md px-4 py-2 hover:bg-green-800" onClick={(e)=>handleWatchVideo(e, videoId)}>Watch</button>
+    <div className="w-full md:w-1/3 h-[200px] bg-gray-800 rounded-md p-4 my-5 mx-0 md:mx-5 flex flex-col items-center justify-evenly border border-gray-700 hover:border-gray-500 transition-all duration-300">
+      <h2 className="text-xl text-white font-semibold">{name}</h2>
+      <button className="bg-green-600 text-white rounded-md px-4 py-2 mt-4 hover:bg-green-700 transition-colors duration-300" onClick={(e) => handleWatchVideo(e, videoId)}>Watch</button>
     </div>
   );
 };
