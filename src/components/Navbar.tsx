@@ -9,18 +9,25 @@ function Navbar() {
       return;
     }
     localStorage.removeItem("token");
-    window.location.href = "/signin";
+    navigate("/signin", { replace: true });
   };
 
   return (
     <div className="w-full h-20 fixed top-0 z-10 flex flex-row justify-between items-center px-4 md:px-10 border-b-[1px] border-gray-500 bg-transparent shadow-lg rounded-b-lg bg-opacity-50 backdrop-filter backdrop-blur-lg">
       <div>
-        <p className="text-xl md:text-2xl font-bold text-white">Rompalli Harish</p>
+        <p className="text-xl md:text-2xl font-bold text-white">
+          Rompalli Harish
+        </p>
       </div>
 
       <div className="flex flex-row justify-between items-center space-x-2 md:space-x-16">
-        <a className="text-white hover:text-gray-300 transition duration-300">About</a>
-        <a onClick={() => navigate("/")} className="cursor-pointer text-white hover:text-gray-300 transition duration-300">
+        <a className="text-white hover:text-gray-300 transition duration-300">
+          About
+        </a>
+        <a
+          onClick={() => navigate("/")}
+          className="cursor-pointer text-white hover:text-gray-300 transition duration-300"
+        >
           Courses
         </a>
         <button
