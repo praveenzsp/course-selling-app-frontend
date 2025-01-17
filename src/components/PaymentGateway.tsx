@@ -53,7 +53,7 @@ function PaymentGateway() {
       <h1></h1>
       <p>This is just a dummy buy button</p>
       <button
-        className="px-4 py-2 bg-blue-600 rounded-lg mt-4"
+        className="px-4 py-2 bg-blue-600 rounded-lg mt-4 hover:bg-blue-800"
         onClick={handleBuyCourse}
       >
         Buy course
