@@ -10,7 +10,7 @@ function VideoPlayer() {
   useEffect(() => {
     const fetchVideo = async () => {
       const response = await axios.post(
-        `http://ec2-15-207-111-167.ap-south-1.compute.amazonaws.com:8081/content/${courseId}/${videoId}`,
+        `https://course-selling-app-backend-kss6.onrender.com/content/${courseId}/${videoId}`,
         {
           userId: JSON.parse(localStorage.getItem("user") || "{}").userId,
         },

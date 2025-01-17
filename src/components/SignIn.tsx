@@ -25,7 +25,7 @@ function SignIn() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://ec2-15-207-111-167.ap-south-1.compute.amazonaws.com:8081/auth/signin",
+        "https://course-selling-app-backend-kss6.onrender.com/auth/signin",
         {
           email,
           password,

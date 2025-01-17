@@ -99,7 +99,7 @@ function Home() {
   useEffect(() => {
     async function fetchCourses() {
       try {
-        const response = await axios.get("http://ec2-15-207-111-167.ap-south-1.compute.amazonaws.com:8081/courses", {
+        const response = await axios.get("https://course-selling-app-backend-kss6.onrender.com/courses", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -118,7 +118,7 @@ function Home() {
       try {
         const userId = JSON.parse(localStorage.getItem("user") || "{}").userId;
         const response = await axios.get(
-          `http://ec2-15-207-111-167.ap-south-1.compute.amazonaws.com:8081/courses/purchased?userId=${userId}`,
+          `https://course-selling-app-backend-kss6.onrender.com/courses/purchased?userId=${userId}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

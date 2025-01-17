@@ -27,7 +27,7 @@ function SignUp() {
 
     try {
       const response = await axios.post(
-        "http://ec2-15-207-111-167.ap-south-1.compute.amazonaws.com:8081/auth/signup",
+        "https://course-selling-app-backend-kss6.onrender.com/auth/signup",
         {
           username,
           email,
