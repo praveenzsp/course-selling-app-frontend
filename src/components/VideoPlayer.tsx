@@ -73,6 +73,7 @@ const handleKeyPresses = useCallback((event: KeyboardEvent) => {
           className="w-[100vw] h-full rounded-xl text-red-500"
           controlsList="nodownload"
           preload="auto"
+          onContextMenu={(e)=>e.preventDefault()}
         ></video>
       </div>
       <h1 className=" text-2xl md:text-5xl text-left my-8">
